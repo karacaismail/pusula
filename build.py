@@ -4,20 +4,21 @@
 Pusula build: src/ parcalarini tek dosyalik v2/index.html olarak birlestirir.
 
 Kullanim:
-    python3 build.py            # v2/index.html uret
+    python3 build.py            # v3/index.html uret
     python3 build.py --check    # uret ama yazma; mevcut ciktiyla farki bildir
 
-Kural: v2/index.html ELLE DUZENLENMEZ. Icerik degisikligi src/30-body.html,
+Kural: v3/index.html ELLE DUZENLENMEZ. Icerik degisikligi src/30-body.html,
 grafik degisikligi src/50-charts.js, stil degisikligi src/20-style-sprite.html
 dosyasinda yapilir. 10-daisyui.css ve 40-echarts.js vendor dosyalaridir; yalniz
 surum yukseltmede degistirilir.
 """
 import io
 import os
+import re
 import sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(ROOT, "v2", "index.html")
+OUT = os.path.join(ROOT, "v3", "index.html")  # v2 DONDURULDU; gelistirme v3'te
 
 ORDER = [
     "src/00-head.html",        # meta, title, font, favicon, <style> acilisi
@@ -26,6 +27,7 @@ ORDER = [
     "src/30-body.html",        # ICERIK
     "src/40-echarts.js",       # vendor: Apache ECharts 5 (<script> ile sarili)
     "src/50-charts.js",        # grafik baslatma
+    "src/60-ui.js",            # kural balonlari (tek balon acik + Esc)
 ]
 
 # Yayin oncesi zorunlu kontroller: (aciklama, kosul)
@@ -35,8 +37,13 @@ def checks(html: str):
     yield "viewport var", 'name="viewport"' in lower
     yield "noindex var", "noindex" in lower
     yield "title var", "<title>" in lower
-    yield "tek <style> blogu", html.count("</style>") == 1
-    yield "3 <script> blogu", html.count("</script>") == 2
+    yield "2 <style> blogu (ana + noscript)", html.count("</style>") == 2
+    yield "4 <script> blogu", html.count("</script>") == 3
+    yield "kural kutulari 11 adet", html.count('class="rules"') == 11
+    yield "her kutuda 2 balon", html.count('rule-btn-why') == html.count('rule-btn-risk') == 12  # 11 buton + 1 CSS seciciyi kapsar
+    yield "balon icerikleri eslesiyor", len(re.findall(r'id="why\d+"', html)) == len(re.findall(r'id="risk\d+"', html)) == 11
+    yield "cunku/eger dili", html.count("çünkü:") >= 11 and html.count("Eğer") >= 11
+    yield "ikon erisilebilir", html.count('aria-label="Neden?"') == 11 and html.count('aria-label="Uymazsam ne olur?"') == 11
     yield "emoji yok (ikon)", "📊" not in html and "✅" not in html and "🚀" not in html
     yield "ucuncu kisi adi yok", "Üzeyir" not in html and "Ozan" not in html
     yield "kapsam disi proje yok", "Zabuno" not in html and "Cups" not in html
@@ -67,7 +74,7 @@ def main():
         return
 
     io.open(OUT, "w", encoding="utf-8").write(html)
-    print(f"\nYazildi: v2/index.html  ({len(html):,} bayt)")
+    print(f"\nYazildi: v3/index.html  ({len(html):,} bayt)")
     print("Sonraki adim: git add -A && git commit && git push  ->  ~1-2 dk sonra GitHub Pages guncellenir")
 
 

@@ -11,7 +11,8 @@ Bu bir **yazılım ürünü değil**, bir **karar aracıdır**: tek kişilik bir
 para, proje, aile ve sağlık kararlarını tek sayfada, kanıta bağlı biçimde görmesini sağlayan
 statik bir web raporu. İki parçası vardır: **bugünün fotoğrafı** ve **kronolojik yol haritası**.
 
-- **Canlı (güncel):** https://karacaismail.github.io/pusula/v2/
+- **Canlı (güncel):** https://karacaismail.github.io/pusula/v3/
+- **Canlı (donduruldu):** https://karacaismail.github.io/pusula/v2/
 - **Canlı (eski arşiv, dokunulmaz):** https://karacaismail.github.io/pusula/
 - **Depo:** https://github.com/karacaismail/pusula (public)
 - **Yerel çalışma kopyası:** `/Users/karaca/DEV/pusula` ← Cursor bunu açacak
@@ -123,7 +124,8 @@ indirilip çevrimdışı okunabilmeli, CSP kısıtlı ortamlarda (artifact) çal
 ├─ HANDOFF.md                        ← bu belge
 ├─ build.py                          ← src/ → v2/index.html birleştirici + yayın öncesi kontroller
 ├─ index.html                        ← ESKİ ARŞİV (v3.1). Sürüm bandı var. DOKUNMA.
-├─ v2/index.html                     ← BUILD ÇIKTISI (güncel rapor). ELLE DÜZENLEME.
+├─ v2/index.html                     ← DONDURULDU (30.08.2026). Referans sürüm; elleme.
+├─ v3/index.html                     ← BUILD ÇIKTISI (güncel rapor). ELLE DÜZENLEME.
 └─ src/
    ├─ 00-head.html        (751 B)    meta, title, font, favicon, <style> açılışı
    ├─ 10-daisyui.css      (1,1 MB)   VENDOR — sürüm yükseltme dışında dokunma
@@ -137,11 +139,11 @@ indirilip çevrimdışı okunabilmeli, CSP kısıtlı ortamlarda (artifact) çal
 ```bash
 cd /Users/karaca/DEV/pusula
 # 1. içeriği düzenle
-$EDITOR src/30-body.html
+$EDITOR src/30-body.html          # kural kutusu ekliyorsan: tools/add_rules.py
 # 2. derle + kontrolleri geçir
 python3 build.py
 # 3. yerelde bak (mobil görünümde de)
-python3 -m http.server 8080   # → http://localhost:8080/v2/
+python3 -m http.server 8080   # → http://localhost:8080/v3/
 # 4. yayınla
 git add -A && git commit -m "…" && git push
 ```
