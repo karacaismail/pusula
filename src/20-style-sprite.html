@@ -1,0 +1,172 @@
+/* ==== Pusula custom layer (unlayered: daisyUI @layer'larını güvenle ezer) ==== */
+:root {
+  --color-primary: #0E7C86;
+  --color-primary-content: #EAFBFC;
+  --color-accent: #0E7C86;
+  --color-accent-content: #EAFBFC;
+  --color-base-100: #F7FAF9;
+  --color-base-200: #EDF2F1;
+  --color-base-300: #DFE8E6;
+  --color-base-content: #182A2C;
+  --radius-box: 0.75rem;
+}
+[data-theme=dark] {
+  color-scheme: dark;
+  --color-base-100: #131C1E;
+  --color-base-200: #182527;
+  --color-base-300: #22383B;
+  --color-base-content: #E4EDEC;
+  --color-primary: #4FC0C8;
+  --color-primary-content: #082527;
+  --color-accent: #4FC0C8;
+  --color-accent-content: #082527;
+  --radius-box: 0.75rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme=light]) {
+    color-scheme: dark;
+    --color-base-100: #131C1E;
+    --color-base-200: #182527;
+    --color-base-300: #22383B;
+    --color-base-content: #E4EDEC;
+    --color-primary: #4FC0C8;
+    --color-primary-content: #082527;
+    --color-accent: #4FC0C8;
+    --color-accent-content: #082527;
+    --color-neutral: #26393C;
+    --color-neutral-content: #E4EDEC;
+    --color-info: oklch(74% .16 232.661);
+    --color-info-content: oklch(29% .066 243.157);
+    --color-success: oklch(76% .177 163.223);
+    --color-success-content: oklch(37% .077 168.94);
+    --color-warning: oklch(82% .189 84.429);
+    --color-warning-content: oklch(41% .112 45.904);
+    --color-error: oklch(71% .194 13.428);
+    --color-error-content: oklch(27% .105 12.094);
+    --radius-box: 0.75rem;
+  }
+}
+
+body {
+  background: var(--color-base-100);
+  color: var(--color-base-content);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 76rem; margin: 0 auto; padding: 0 1rem 5rem; }
+.display, h1, h2, h3 { font-family: Archivo, ui-sans-serif, system-ui, sans-serif; text-wrap: balance; }
+h1 { font-size: clamp(1.9rem, 6vw, 3rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin: 0.5rem 0; }
+h2 { font-size: clamp(1.35rem, 4.5vw, 1.8rem); font-weight: 700; margin: 0 0 0.35rem; }
+h3 { font-size: 1.05rem; font-weight: 700; margin: 0; }
+p { margin: 0; }
+section { scroll-margin-top: 4.2rem; padding-top: 3.6rem; }
+.chart-box { border: 1px solid var(--color-base-300); border-radius: var(--radius-box); background: var(--color-base-100); padding: 1.1rem 1.15rem 0.9rem; margin-top: 1.4rem; }
+.chart-box h3 { margin-bottom: 0.35rem; }
+.chart { width: 100%; height: 320px; }
+.chart-cap { font-size: 0.84rem; color: color-mix(in oklab, var(--color-base-content) 60%, transparent); margin-top: 0.35rem; }
+.eyebrow { font-family: Archivo, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-primary); }
+.muted { color: color-mix(in oklab, var(--color-base-content) 62%, transparent); }
+.small { font-size: 0.9rem; }
+.num { font-variant-numeric: tabular-nums; }
+.lede { font-size: 1.08rem; max-width: 62ch; }
+.stack { display: flex; flex-direction: column; gap: 0.75rem; }
+.g2, .g3 { display: grid; gap: 0.75rem; grid-template-columns: 1fr; }
+@media (min-width: 768px) { .g2 { grid-template-columns: 1fr 1fr; } .g3 { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1080px) { .g3 { grid-template-columns: 1fr 1fr 1fr; } }
+
+/* sticky chip nav */
+.chipnav {
+  position: sticky; top: 0; z-index: 40;
+  display: flex; gap: 0.4rem; overflow-x: auto; padding: 0.6rem 1rem;
+  margin: 0 -1rem; background: color-mix(in oklab, var(--color-base-100) 88%, transparent);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-base-300);
+  scrollbar-width: none;
+}
+.chipnav::-webkit-scrollbar { display: none; }
+.chipnav a {
+  flex: 0 0 auto; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+  color: var(--color-base-content); background: var(--color-base-200);
+  border: 1px solid var(--color-base-300); border-radius: 999px; padding: 0.35rem 0.8rem;
+}
+.chipnav a:active { background: var(--color-base-300); }
+
+/* cards */
+.card { background: var(--color-base-100); border: 1px solid var(--color-base-300); }
+.card .card-body { padding: 1.1rem 1.15rem; gap: 0.6rem; }
+.card-soft { background: var(--color-base-200); border: 1px solid var(--color-base-300); border-radius: var(--radius-box); padding: 1rem 1.1rem; }
+
+/* hero stats */
+.stats { border: 1px solid var(--color-base-300); background: var(--color-base-100); }
+@media (min-width: 900px) { .hero-stats { grid-auto-flow: column; } .hero-stats .stat { border-inline-start: 1px solid var(--color-base-300); } .hero-stats .stat:first-child { border-inline-start: none; } }
+.stat { padding: 0.9rem 1.1rem; }
+.stat-title { font-size: 0.8rem; }
+.stat-value { font-size: 1.45rem; font-variant-numeric: tabular-nums; }
+.stat-desc { white-space: normal; }
+
+/* cost table */
+.costrow { display: flex; justify-content: space-between; align-items: baseline; gap: 0.8rem; padding: 0.5rem 0; border-bottom: 1px dashed var(--color-base-300); }
+.costrow:last-child { border-bottom: none; }
+.costrow .v { font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; }
+.total { display: flex; justify-content: space-between; align-items: baseline; gap: 0.8rem; padding: 0.7rem 0.9rem; border-radius: 0.6rem; background: color-mix(in oklab, var(--color-primary) 12%, var(--color-base-100)); font-weight: 800; }
+.total .v { font-variant-numeric: tabular-nums; }
+
+/* timeline & steps text */
+.timeline-box { font-size: 0.9rem; }
+.steps .step { font-size: 0.9rem; }
+.step-note { font-size: 0.86rem; }
+
+/* project cards */
+.proj .role { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-primary); }
+.proj .verdict { border-left: 3px solid var(--color-primary); padding-left: 0.7rem; font-size: 0.93rem; }
+
+/* questions */
+.q { border: 1px solid var(--color-base-300); border-radius: 0.7rem; padding: 0.85rem 0.9rem; background: var(--color-base-100); }
+.q .qt { font-weight: 700; margin-bottom: 0.55rem; }
+.opt { display: flex; align-items: flex-start; gap: 0.6rem; padding: 0.55rem 0.6rem; border: 1px solid var(--color-base-300); border-radius: 0.55rem; margin-top: 0.4rem; cursor: pointer; font-size: 0.94rem; }
+.opt:has(input:checked) { border-color: var(--color-primary); background: color-mix(in oklab, var(--color-primary) 9%, var(--color-base-100)); }
+.opt input { margin-top: 0.2rem; flex: 0 0 auto; }
+.opt .rec { margin-left: auto; flex: 0 0 auto; }
+.qnote { font-size: 0.85rem; margin-top: 0.5rem; color: color-mix(in oklab, var(--color-base-content) 62%, transparent); }
+
+/* unk cards */
+.unk h3 { display: flex; gap: 0.5rem; align-items: baseline; }
+.unk .row { display: grid; grid-template-columns: 5.2rem 1fr; gap: 0.5rem; font-size: 0.9rem; margin-top: 0.4rem; }
+.unk .k { font-weight: 700; color: var(--color-primary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* collapse */
+.collapse { border: 1px solid var(--color-base-300); background: var(--color-base-100); }
+.collapse-title { font-weight: 700; }
+
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+
+.footer-note { border-top: 1px solid var(--color-base-300); margin-top: 3rem; padding-top: 1.2rem; font-size: 0.85rem; }
+.footer-note p { margin: 0.35rem 0; max-width: 80ch; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+html { scroll-behavior: smooth; }
+.ph { width: 1.05em; height: 1.05em; fill: currentColor; vertical-align: -0.16em; margin-right: 0.45rem; flex: 0 0 auto; }
+.ph-h1 { width: 0.92em; height: 0.92em; color: var(--color-primary); margin-right: 0.35rem; }
+h2 .ph { color: var(--color-primary); }
+</style>
+
+<div class="wrap">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="ph-calendar-check" viewBox="0 0 256 256"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-38.34-85.66a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L116,164.69l42.34-42.35A8,8,0,0,1,169.66,122.34Z"/></symbol>
+<symbol id="ph-check" viewBox="0 0 256 256"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></symbol>
+<symbol id="ph-clipboard-text" viewBox="0 0 256 256"><path d="M168,152a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,152Zm-8-40H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16Zm56-64V216a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V48A16,16,0,0,1,56,32H92.26a47.92,47.92,0,0,1,71.48,0H200A16,16,0,0,1,216,48ZM96,64h64a32,32,0,0,0-64,0ZM200,48H173.25A47.93,47.93,0,0,1,176,64v8a8,8,0,0,1-8,8H88a8,8,0,0,1-8-8V64a47.93,47.93,0,0,1,2.75-16H56V216H200Z"/></symbol>
+<symbol id="ph-coins" viewBox="0 0 256 256"><path d="M184,89.57V84c0-25.08-37.83-44-88-44S8,58.92,8,84v40c0,20.89,26.25,37.49,64,42.46V172c0,25.08,37.83,44,88,44s88-18.92,88-44V132C248,111.3,222.58,94.68,184,89.57ZM232,132c0,13.22-30.79,28-72,28-3.73,0-7.43-.13-11.08-.37C170.49,151.77,184,139,184,124V105.74C213.87,110.19,232,122.27,232,132ZM72,150.25V126.46A183.74,183.74,0,0,0,96,128a183.74,183.74,0,0,0,24-1.54v23.79A163,163,0,0,1,96,152,163,163,0,0,1,72,150.25Zm96-40.32V124c0,8.39-12.41,17.4-32,22.87V123.5C148.91,120.37,159.84,115.71,168,109.93ZM96,56c41.21,0,72,14.78,72,28s-30.79,28-72,28S24,97.22,24,84,54.79,56,96,56ZM24,124V109.93c8.16,5.78,19.09,10.44,32,13.57v23.37C36.41,141.4,24,132.39,24,124Zm64,48v-4.17c2.63.1,5.29.17,8,.17,3.88,0,7.67-.13,11.39-.35A121.92,121.92,0,0,0,120,171.41v23.46C100.41,189.4,88,180.39,88,172Zm48,26.25V174.4a179.48,179.48,0,0,0,24,1.6,183.74,183.74,0,0,0,24-1.54v23.79a165.45,165.45,0,0,1-48,0Zm64-3.38V171.5c12.91-3.13,23.84-7.79,32-13.57V172C232,180.39,219.59,189.4,200,194.87Z"/></symbol>
+<symbol id="ph-compass" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216ZM172.42,72.84l-64,32a8.05,8.05,0,0,0-3.58,3.58l-32,64A8,8,0,0,0,80,184a8.1,8.1,0,0,0,3.58-.84l64-32a8.05,8.05,0,0,0,3.58-3.58l32-64a8,8,0,0,0-10.74-10.74ZM138,138,97.89,158.11,118,118l40.15-20.07Z"/></symbol>
+<symbol id="ph-engine" viewBox="0 0 256 256"><path d="M240,104H227.31L192,68.69A15.86,15.86,0,0,0,180.69,64H140V40h24a8,8,0,0,0,0-16H100a8,8,0,0,0,0,16h24V64H64A16,16,0,0,0,48,80v52H24V108a8,8,0,0,0-16,0v64a8,8,0,0,0,16,0V148H48v20.69A15.86,15.86,0,0,0,52.69,180L92,219.31A15.86,15.86,0,0,0,103.31,224h77.38A15.86,15.86,0,0,0,192,219.31L227.31,184H240a16,16,0,0,0,16-16V120A16,16,0,0,0,240,104Zm0,64H224a8,8,0,0,0-5.66,2.34L180.69,208H103.31L64,168.69V80H180.69l37.65,37.66A8,8,0,0,0,224,120h16Z"/></symbol>
+<symbol id="ph-eye-slash" viewBox="0 0 256 256"><path d="M53.92,34.62A8,8,0,1,0,42.08,45.38L61.32,66.55C25,88.84,9.38,123.2,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208a127.11,127.11,0,0,0,52.07-10.83l22,24.21a8,8,0,1,0,11.84-10.76Zm47.33,75.84,41.67,45.85a32,32,0,0,1-41.67-45.85ZM128,192c-30.78,0-57.67-11.19-79.93-33.25A133.16,133.16,0,0,1,25,128c4.69-8.79,19.66-33.39,47.35-49.38l18,19.75a48,48,0,0,0,63.66,70l14.73,16.2A112,112,0,0,1,128,192Zm6-95.43a8,8,0,0,1,3-15.72,48.16,48.16,0,0,1,38.77,42.64,8,8,0,0,1-7.22,8.71,6.39,6.39,0,0,1-.75,0,8,8,0,0,1-8-7.26A32.09,32.09,0,0,0,134,96.57Zm113.28,34.69c-.42.94-10.55,23.37-33.36,43.8a8,8,0,1,1-10.67-11.92A132.77,132.77,0,0,0,231.05,128a133.15,133.15,0,0,0-23.12-30.77C185.67,75.19,158.78,64,128,64a118.37,118.37,0,0,0-19.36,1.57A8,8,0,1,1,106,49.79,134,134,0,0,1,128,48c34.88,0,66.57,13.26,91.66,38.35,18.83,18.83,27.3,37.62,27.65,38.41A8,8,0,0,1,247.31,131.26Z"/></symbol>
+<symbol id="ph-flag-checkered" viewBox="0 0 256 256"><path d="M227.32,48.75A8,8,0,0,0,218.76,50c-28,24.22-51.72,12.48-79.21-1.13C111.07,34.76,78.78,18.79,42.76,50A8,8,0,0,0,40,56V224a8,8,0,0,0,16,0V179.77c26.79-21.16,49.87-9.75,76.45,3.41,28.49,14.09,60.77,30.06,96.79-1.13a8,8,0,0,0,2.76-6V56A8,8,0,0,0,227.32,48.75ZM216,71.6v40.65c-14,11.06-27,13.22-40,10.88V79.34A60.05,60.05,0,0,0,216,71.6Zm-56,3.76v43c-6.66-2.67-13.43-6-20.45-9.48-8.82-4.37-18-8.91-27.55-12.18v-43c6.66,2.66,13.43,6,20.45,9.48C141.27,67.55,150.46,72.09,160,75.36ZM96,48.91V92.69a60.06,60.06,0,0,0-40,7.75V59.78C70,48.72,83,46.57,96,48.91ZM86.58,152A60.06,60.06,0,0,0,56,160.43V119.78c14-11.06,27-13.22,40-10.88v43.8A65.61,65.61,0,0,0,86.58,152ZM112,156.67v-43c6.66,2.66,13.43,6,20.45,9.48,8.82,4.37,18,8.9,27.55,12.17v43c-6.66-2.67-13.43-6-20.45-9.48C130.73,164.47,121.54,159.94,112,156.67Zm64,26.45v-43.8a65.61,65.61,0,0,0,9.42.72A60.11,60.11,0,0,0,216,131.57v40.68C202,183.31,189,185.46,176,183.12Z"/></symbol>
+<symbol id="ph-frame-corners" viewBox="0 0 256 256"><path d="M200,80v32a8,8,0,0,1-16,0V88H160a8,8,0,0,1,0-16h32A8,8,0,0,1,200,80ZM96,168H72V144a8,8,0,0,0-16,0v32a8,8,0,0,0,8,8H96a8,8,0,0,0,0-16ZM232,56V200a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56ZM216,200V56H40V200H216Z"/></symbol>
+<symbol id="ph-heartbeat" viewBox="0 0 256 256"><path d="M72,144H32a8,8,0,0,1,0-16H67.72l13.62-20.44a8,8,0,0,1,13.32,0l25.34,38,9.34-14A8,8,0,0,1,136,128h24a8,8,0,0,1,0,16H140.28l-13.62,20.44a8,8,0,0,1-13.32,0L88,126.42l-9.34,14A8,8,0,0,1,72,144ZM178,40c-20.65,0-38.73,8.88-50,23.89C116.73,48.88,98.65,40,78,40a62.07,62.07,0,0,0-62,62c0,.75,0,1.5,0,2.25a8,8,0,1,0,16-.5c0-.58,0-1.17,0-1.75A46.06,46.06,0,0,1,78,56c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46c0,53.61-77.76,102.15-96,112.8-10.83-6.31-42.63-26-66.68-52.21a8,8,0,1,0-11.8,10.82c31.17,34,72.93,56.68,74.69,57.63a8,8,0,0,0,7.58,0C136.21,228.66,240,172,240,102A62.07,62.07,0,0,0,178,40Z"/></symbol>
+<symbol id="ph-hourglass" viewBox="0 0 256 256"><path d="M200,75.64V40a16,16,0,0,0-16-16H72A16,16,0,0,0,56,40V76a16.07,16.07,0,0,0,6.4,12.8L114.67,128,62.4,167.2A16.07,16.07,0,0,0,56,180v36a16,16,0,0,0,16,16H184a16,16,0,0,0,16-16V180.36a16.09,16.09,0,0,0-6.35-12.77L141.27,128l52.38-39.6A16.05,16.05,0,0,0,200,75.64ZM184,216H72V180l56-42,56,42.35Zm0-140.36L128,118,72,76V40H184Z"/></symbol>
+<symbol id="ph-list-checks" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H128a8,8,0,0,1,0-16h88A8,8,0,0,1,224,128ZM128,72h88a8,8,0,0,0,0-16H128a8,8,0,0,0,0,16Zm88,112H128a8,8,0,0,0,0,16h88a8,8,0,0,0,0-16ZM82.34,42.34,56,68.69,45.66,58.34A8,8,0,0,0,34.34,69.66l16,16a8,8,0,0,0,11.32,0l32-32A8,8,0,0,0,82.34,42.34Zm0,64L56,132.69,45.66,122.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0-11.32-11.32Zm0,64L56,196.69,45.66,186.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0-11.32-11.32Z"/></symbol>
+<symbol id="ph-sailboat" viewBox="0 0 256 256"><path d="M247.21,172.53A8,8,0,0,0,240,168H144V144h72a8,8,0,0,0,5.92-13.38L144,44.91V8a8,8,0,0,0-14.21-5l-104,128A8,8,0,0,0,32,144h96v24H16a8,8,0,0,0-6.25,13l29.6,37a15.93,15.93,0,0,0,12.49,6H204.16a15.93,15.93,0,0,0,12.49-6l29.6-37A8,8,0,0,0,247.21,172.53ZM197.92,128H144V68.69ZM48.81,128,128,30.53V128Zm155.35,80H51.84l-19.2-24H223.36Z"/></symbol>
+<symbol id="ph-stack" viewBox="0 0 256 256"><path d="M230.91,172A8,8,0,0,1,228,182.91l-96,56a8,8,0,0,1-8.06,0l-96-56A8,8,0,0,1,36,169.09l92,53.65,92-53.65A8,8,0,0,1,230.91,172ZM220,121.09l-92,53.65L36,121.09A8,8,0,0,0,28,134.91l96,56a8,8,0,0,0,8.06,0l96-56A8,8,0,1,0,220,121.09ZM24,80a8,8,0,0,1,4-6.91l96-56a8,8,0,0,1,8.06,0l96,56a8,8,0,0,1,0,13.82l-96,56a8,8,0,0,1-8.06,0l-96-56A8,8,0,0,1,24,80Zm23.88,0L128,126.74,208.12,80,128,33.26Z"/></symbol>
+<symbol id="ph-user-focus" viewBox="0 0 256 256"><path d="M224,40V76a8,8,0,0,1-16,0V48H180a8,8,0,0,1,0-16h36A8,8,0,0,1,224,40Zm-8,132a8,8,0,0,0-8,8v28H180a8,8,0,0,0,0,16h36a8,8,0,0,0,8-8V180A8,8,0,0,0,216,172ZM76,208H48V180a8,8,0,0,0-16,0v36a8,8,0,0,0,8,8H76a8,8,0,0,0,0-16ZM40,84a8,8,0,0,0,8-8V48H76a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8V76A8,8,0,0,0,40,84Zm136,92a8,8,0,0,1-6.41-3.19,52,52,0,0,0-83.2,0,8,8,0,1,1-12.8-9.62A67.94,67.94,0,0,1,101,141.51a40,40,0,1,1,53.94,0,67.94,67.94,0,0,1,27.43,21.68A8,8,0,0,1,176,176Zm-48-40a24,24,0,1,0-24-24A24,24,0,0,0,128,136Z"/></symbol>
+<symbol id="ph-wallet" viewBox="0 0 256 256"><path d="M216,64H56a8,8,0,0,1,0-16H192a8,8,0,0,0,0-16H56A24,24,0,0,0,32,56V184a24,24,0,0,0,24,24H216a16,16,0,0,0,16-16V80A16,16,0,0,0,216,64Zm0,128H56a8,8,0,0,1-8-8V78.63A23.84,23.84,0,0,0,56,80H216Zm-48-60a12,12,0,1,1,12,12A12,12,0,0,1,168,132Z"/></symbol>
+</svg>
