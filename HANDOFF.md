@@ -70,7 +70,8 @@ Sahibinin şu üç soruyu her an tek yerden cevaplayabilmesi:
 ## 3. Değişmez kurallar (bunları bozan değişiklik geri alınır)
 
 ### İçerik kuralları
-1. **Emoji yasak.** Tüm ikonlar Phosphor Icons (regular). Sayfada 16 SVG sembol gömülü.
+1. **Emoji yasak.** Tüm ikonlar Phosphor Icons (regular). Sayfada 18 SVG sembol gömülü.
+1b. **Tipografi tabanı:** yazı tipi Roboto; hiçbir metin 1rem altına, hiçbir ağırlık 400 altına inmez. `build.py` bunu denetler.
 2. **Her veri tek kanonik yerde.** Aynı sayıyı ikinci kez yazacaksan, yazma — o bölüme işaretçi ver
    ("tanımı Hedef bölümünde"). Yayın öncesi tekrar taraması: `python3 tools/dupscan.py` (bkz. §9).
 3. **Changelog anlatısı yok.** "Şu düzeltildi", "bu karar verildi", "tur 2'de işlendi", "v2.2'de eklendi"
@@ -106,8 +107,8 @@ Sahibinin şu üç soruyu her an tek yerden cevaplayabilmesi:
 | Bileşen/stil | **DaisyUI 5.7.22** (saf CSS dağıtımı, gömülü) | Tailwind derleyicisi YOK — `md:` gibi önekler çalışmaz; özel medya sorguları elle yazılır |
 | Özel stil | `src/20-style-sprite.html` içinde katmansız CSS | daisyUI `@layer`'ını güvenle ezer |
 | Grafik | **Apache ECharts 5** (gömülü) | 4 grafik: maliyet pastası, net varlık patikası, gelir köprüsü, saat bütçesi |
-| İkon | **Phosphor Icons** (regular), 16 sembollük gömülü SVG sprite | `<svg class="ph"><use href="#ph-…"/></svg>` |
-| Tipografi | Google Fonts **Archivo** (başlık) + sistem yazı tipi (gövde) | |
+| İkon | **Phosphor Icons** (regular), 18 sembollük gömülü SVG sprite | `<svg class="ph"><use href="#ph-…"/></svg>` |
+| Tipografi | Google Fonts **Roboto** (400–900 değişken) | **Kural: her metin ≥1rem, her ağırlık ≥400** — daisyUI'nin küçük bileşen boyutları (badge .625rem, tablo .6875rem, stat .75rem) özel katmanda eziliyor |
 | Favicon | Phosphor "compass" ikonu, data-URI | |
 | Yayın | **GitHub Pages** (`main` dalı, kök) | Push'tan ~1–2 dk sonra canlı |
 | Derleme | `python3 build.py` | Bağımlılık yok, sadece Python 3 |

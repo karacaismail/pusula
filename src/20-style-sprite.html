@@ -55,21 +55,21 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 .wrap { max-width: 76rem; margin: 0 auto; padding: 0 1rem 5rem; }
-.display, h1, h2, h3 { font-family: Archivo, ui-sans-serif, system-ui, sans-serif; text-wrap: balance; }
-h1 { font-size: clamp(1.9rem, 6vw, 3rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin: 0.5rem 0; }
-h2 { font-size: clamp(1.35rem, 4.5vw, 1.8rem); font-weight: 700; margin: 0 0 0.35rem; }
-h3 { font-size: 1.05rem; font-weight: 700; margin: 0; }
+.display, h1, h2, h3 { font-family: Roboto, ui-sans-serif, system-ui, sans-serif; text-wrap: balance; }
+h1 { font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin: 0.5rem 0; }
+h2 { font-size: clamp(1.4rem, 4.5vw, 1.85rem); font-weight: 700; margin: 0 0 0.35rem; }
+h3 { font-size: 1.15rem; font-weight: 700; margin: 0; }
 p { margin: 0; }
 section { scroll-margin-top: 4.2rem; padding-top: 3.6rem; }
 .chart-box { border: 1px solid var(--color-base-300); border-radius: var(--radius-box); background: var(--color-base-100); padding: 1.1rem 1.15rem 0.9rem; margin-top: 1.4rem; }
 .chart-box h3 { margin-bottom: 0.35rem; }
 .chart { width: 100%; height: 320px; }
-.chart-cap { font-size: 0.84rem; color: color-mix(in oklab, var(--color-base-content) 60%, transparent); margin-top: 0.35rem; }
-.eyebrow { font-family: Archivo, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-primary); }
+.chart-cap { font-size: 1rem; color: color-mix(in oklab, var(--color-base-content) 60%, transparent); margin-top: 0.35rem; }
+.eyebrow { font-family: Roboto, sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-primary); }
 .muted { color: color-mix(in oklab, var(--color-base-content) 62%, transparent); }
-.small { font-size: 0.9rem; }
+.small { font-size: 1rem; }
 .num { font-variant-numeric: tabular-nums; }
-.lede { font-size: 1.08rem; max-width: 62ch; }
+.lede { font-size: 1.15rem; max-width: 62ch; }
 .stack { display: flex; flex-direction: column; gap: 0.75rem; }
 .g2, .g3 { display: grid; gap: 0.75rem; grid-template-columns: 1fr; }
 @media (min-width: 768px) { .g2 { grid-template-columns: 1fr 1fr; } .g3 { grid-template-columns: 1fr 1fr; } }
@@ -86,7 +86,7 @@ section { scroll-margin-top: 4.2rem; padding-top: 3.6rem; }
 }
 .chipnav::-webkit-scrollbar { display: none; }
 .chipnav a {
-  flex: 0 0 auto; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+  flex: 0 0 auto; font-size: 1rem; font-weight: 600; text-decoration: none;
   color: var(--color-base-content); background: var(--color-base-200);
   border: 1px solid var(--color-base-300); border-radius: 999px; padding: 0.35rem 0.8rem;
 }
@@ -101,8 +101,8 @@ section { scroll-margin-top: 4.2rem; padding-top: 3.6rem; }
 .stats { border: 1px solid var(--color-base-300); background: var(--color-base-100); }
 @media (min-width: 900px) { .hero-stats { grid-auto-flow: column; } .hero-stats .stat { border-inline-start: 1px solid var(--color-base-300); } .hero-stats .stat:first-child { border-inline-start: none; } }
 .stat { padding: 0.9rem 1.1rem; }
-.stat-title { font-size: 0.8rem; }
-.stat-value { font-size: 1.45rem; font-variant-numeric: tabular-nums; }
+.stat-title { font-size: 1rem; }
+.stat-value { font-size: 1.5rem; font-variant-numeric: tabular-nums; }
 .stat-desc { white-space: normal; }
 
 /* cost table */
@@ -113,27 +113,27 @@ section { scroll-margin-top: 4.2rem; padding-top: 3.6rem; }
 .total .v { font-variant-numeric: tabular-nums; }
 
 /* timeline & steps text */
-.timeline-box { font-size: 0.9rem; }
-.steps .step { font-size: 0.9rem; }
-.step-note { font-size: 0.86rem; }
+.timeline-box { font-size: 1rem; }
+.steps .step { font-size: 1rem; }
+.step-note { font-size: 1rem; }
 
 /* project cards */
-.proj .role { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-primary); }
-.proj .verdict { border-left: 3px solid var(--color-primary); padding-left: 0.7rem; font-size: 0.93rem; }
+.proj .role { font-size: 1rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-primary); }
+.proj .verdict { border-left: 3px solid var(--color-primary); padding-left: 0.7rem; font-size: 1rem; }
 
 /* questions */
 .q { border: 1px solid var(--color-base-300); border-radius: 0.7rem; padding: 0.85rem 0.9rem; background: var(--color-base-100); }
 .q .qt { font-weight: 700; margin-bottom: 0.55rem; }
-.opt { display: flex; align-items: flex-start; gap: 0.6rem; padding: 0.55rem 0.6rem; border: 1px solid var(--color-base-300); border-radius: 0.55rem; margin-top: 0.4rem; cursor: pointer; font-size: 0.94rem; }
+.opt { display: flex; align-items: flex-start; gap: 0.6rem; padding: 0.55rem 0.6rem; border: 1px solid var(--color-base-300); border-radius: 0.55rem; margin-top: 0.4rem; cursor: pointer; font-size: 1rem; }
 .opt:has(input:checked) { border-color: var(--color-primary); background: color-mix(in oklab, var(--color-primary) 9%, var(--color-base-100)); }
 .opt input { margin-top: 0.2rem; flex: 0 0 auto; }
 .opt .rec { margin-left: auto; flex: 0 0 auto; }
-.qnote { font-size: 0.85rem; margin-top: 0.5rem; color: color-mix(in oklab, var(--color-base-content) 62%, transparent); }
+.qnote { font-size: 1rem; margin-top: 0.5rem; color: color-mix(in oklab, var(--color-base-content) 62%, transparent); }
 
 /* unk cards */
 .unk h3 { display: flex; gap: 0.5rem; align-items: baseline; }
-.unk .row { display: grid; grid-template-columns: 5.2rem 1fr; gap: 0.5rem; font-size: 0.9rem; margin-top: 0.4rem; }
-.unk .k { font-weight: 700; color: var(--color-primary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.unk .row { display: grid; grid-template-columns: 5.2rem 1fr; gap: 0.5rem; font-size: 1rem; margin-top: 0.4rem; }
+.unk .k { font-weight: 700; color: var(--color-primary); font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
 
 /* collapse */
 .collapse { border: 1px solid var(--color-base-300); background: var(--color-base-100); }
@@ -142,10 +142,52 @@ section { scroll-margin-top: 4.2rem; padding-top: 3.6rem; }
 details > summary { list-style: none; }
 details > summary::-webkit-details-marker { display: none; }
 
-.footer-note { border-top: 1px solid var(--color-base-300); margin-top: 3rem; padding-top: 1.2rem; font-size: 0.85rem; }
+.footer-note { border-top: 1px solid var(--color-base-300); margin-top: 3rem; padding-top: 1.2rem; font-size: 1rem; }
 .footer-note p { margin: 0.35rem 0; max-width: 80ch; }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
 html { scroll-behavior: smooth; }
+
+/* ==== Tablolar: kendi yatay kaydirma kutusunda ==== */
+.tablebox {
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--color-base-300); border-radius: var(--radius-box);
+  background: var(--color-base-100);
+}
+.tablebox table { border-collapse: collapse; width: 100%; min-width: 34rem; }
+.tablebox th, .tablebox td {
+  text-align: left; padding: 0.7rem 0.9rem; vertical-align: top;
+  border-top: 1px solid var(--color-base-300);
+}
+.tablebox thead th {
+  border-top: none; background: var(--color-base-200);
+  font-weight: 700; white-space: nowrap;
+}
+.tablebox tbody tr:hover { background: color-mix(in oklab, var(--color-primary) 5%, transparent); }
+
+
+/* ==== Tipografi tabani: Roboto · her metin >=1rem · her agirlik >=400 ==== */
+html, body, button, input, select, textarea, table, th, td, .badge, .alert, .stat-title, .stat-desc, .stat-value, .collapse-title, code {
+  font-family: Roboto, ui-sans-serif, system-ui, sans-serif;
+}
+body { font-weight: 400; }
+.badge, .badge-sm, .badge-xs, .badge-lg,
+.alert, .alert p, .alert span,
+.stat-title, .stat-desc, .stat-value,
+table, .table, .table th, .table td, .table-sm, .table-xs,
+.tablebox table, .tablebox th, .tablebox td,
+.collapse-title, code, small, figcaption, caption, label, li, p, span, div, td, th, a, button, summary {
+  font-size: inherit;
+}
+:where(html) { font-size: 100%; }
+body, .small, .minor, .minor td, .minor th, .chart-cap, .qnote, .footer-note, .footer-note p,
+.rule-pop-body, .rule-pop-body li, .rule-pop-body p, .rule-pop-body h4,
+.eyebrow, .chipnav a, .stat-title, .stat-desc, .step-note, .timeline-box,
+.unk .row, .unk .k, .proj .role, .proj .verdict, .opt, .badge, .alert, .costrow, .total,
+.tablebox table, .tablebox th, .tablebox td { font-size: 1rem; }
+.badge { padding: 0.25rem 0.7rem; height: auto; line-height: 1.45; }
+.stat-value { font-size: 1.5rem; }
+strong, b, th, .costrow .v, .total, .badge, .eyebrow, .unk .k, .proj .role, .rule-pop-body p { font-weight: 700; }
+
 
 /* ==== Kural kutusu: iki icon-only buton + acilir balonlar ==== */
 .rules { margin-top: 0.7rem; }
@@ -165,11 +207,11 @@ html { scroll-behavior: smooth; }
 .rule-pop-body[hidden] { display: none; }
 .rule-pop-body {
   margin-top: 0.55rem; border: 1px solid var(--color-base-300); border-radius: 0.6rem;
-  background: var(--color-base-200); padding: 0.85rem 0.95rem; font-size: 0.9rem; line-height: 1.55;
+  background: var(--color-base-200); padding: 0.85rem 0.95rem; font-size: 1rem; line-height: 1.55;
 }
 .rule-pop-why { border-left: 3px solid var(--color-primary); }
 .rule-pop-risk { border-left: 3px solid var(--color-error); }
-.rule-pop-body h4 { font-family: Archivo, sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.55rem; color: color-mix(in oklab, var(--color-base-content) 58%, transparent); }
+.rule-pop-body h4 { font-family: Roboto, sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.55rem; color: color-mix(in oklab, var(--color-base-content) 58%, transparent); }
 .rule-pop-body p { margin: 0 0 0.3rem; font-weight: 700; }
 .rule-pop-body ul { list-style: disc outside; margin: 0 0 0.8rem; padding-left: 1.15rem; }
 .rule-pop-body ul:last-child { margin-bottom: 0; }

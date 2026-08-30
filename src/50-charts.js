@@ -129,6 +129,13 @@
   window.addEventListener("resize", function () {
     charts.forEach(function (c) { try { c.resize(); } catch (e) {} });
   });
+  // Kapsayici genisligi degisince de yeniden olcekle (yon degistirme, panel acilma vb.)
+  try {
+    var ro = new ResizeObserver(function () {
+      charts.forEach(function (c) { try { c.resize(); } catch (e) {} });
+    });
+    document.querySelectorAll(".chart").forEach(function (el) { ro.observe(el); });
+  } catch (e) {}
   try {
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", render);
   } catch (e) {}

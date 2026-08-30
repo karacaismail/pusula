@@ -44,6 +44,9 @@ def checks(html: str):
     yield "balon icerikleri eslesiyor", len(re.findall(r'id="why\d+"', html)) == len(re.findall(r'id="risk\d+"', html)) == 11
     yield "cunku/eger dili", html.count("çünkü:") >= 11 and html.count("Eğer") >= 11
     yield "ikon erisilebilir", html.count('aria-label="Neden?"') == 11 and html.count('aria-label="Uymazsam ne olur?"') == 11
+    yield "Roboto yuklu", "family=Roboto" in html and "Archivo" not in html
+    yield "1rem alti metin yok", not re.findall(r'font-size: ?0\.[0-9]+rem', html.split("</style>")[0].split("Pusula custom layer")[-1])
+    yield "agirlik 400 alti yok", not re.findall(r'font-weight: ?(?:100|200|300)\b', html.split("Pusula custom layer")[-1])
     yield "emoji yok (ikon)", "📊" not in html and "✅" not in html and "🚀" not in html
     yield "ucuncu kisi adi yok", "Üzeyir" not in html and "Ozan" not in html
     yield "kapsam disi proje yok", "Zabuno" not in html and "Cups" not in html
